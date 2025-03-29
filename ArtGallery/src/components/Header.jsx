@@ -14,27 +14,27 @@ const Header = () => {
         // </header>
 
         <div>
-            <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-10">
+            <header className="fixed top-0 left-0 w-full bg-gray-800 shadow-sm z-10">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     {/* Header will have to change names depending on which page we're in */}
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">Art Dashboard Project Gallery View</h1>
+                    <h1 className="text-3xl font-bold tracking-tight text-white mb-5">Art Dashboard Project Gallery View</h1>
                         <a href='./Artist'>
-                            <button>Artists</button>
+                            <button className='text-white'>Artists</button>
                         </a>
                         <a href='./Painting'>
-                            <button>Paintings</button>
+                            <button className='text-white'>Paintings</button>
                         </a>
                         <a href='./Gallery'>
-                            <button>Galleries</button>
+                            <button className='text-white'>Galleries</button>
                         </a>
                         <a href='./Genre'>
-                            <button>Genres</button>
+                            <button className='text-white'>Genres</button>
                         </a>                        
                         <a href='./Favorites'>
-                            <button>Favorites</button>
+                            <button className='text-white'>Favorites</button>
                         </a>                       
                         <a>
-                            <button>About</button>
+                            <button className='text-white'>About</button>
                         </a>
                 </div>
             </header>

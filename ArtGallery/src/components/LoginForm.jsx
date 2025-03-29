@@ -10,9 +10,9 @@ const LoginForm = (props) => {
             </label>
             <label className="m-2 font-bold">
                 Password:
-                <input name="password" onChange={props.handlePass}className="px-3 bg-gray-700 rounded-lg"/>
+                <input name="password" type="password" onChange={props.handlePass}className="px-3 bg-gray-700 rounded-lg"/>
             </label>
-            <button className="m-2">Login</button>
+            <button className="m-2" onClick={props.handleSubmit}>Login</button>
             <button className="m-2">Register</button>
         </form>
     )

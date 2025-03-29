@@ -1,33 +1,45 @@
 // This is the main login page component
 import { useState } from "react"
 import LoginForm from "./LoginForm"
+import Gallery from "./Gallery"
+import { useNavigate } from "react-router"
 
 const Login = () => {
 
     const [user, setUser] = useState()
     const [pass, setPass] = useState()
+    const [loggedIn, setLoggedIn] = useState(false)
+    const navigate = useNavigate()
 
     const handleUser = (e) => {
         setUser(e.target.value)
+        console.log(e.target.value)
     }
 
     const handlePass = (e) => {
         setPass(e.target.value)
+        console.log(e.target.value)
     }
-    
-    // const handleSubmit = () => {
-    //     if (user == "bill" && pass == 123)
-    //     {
 
-    //     } else {
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    //     }
-    // }
+        if (user === "bill" && pass === "123") {
+            console.log("submitted");
+            setLoggedIn(true);
+        } else {
+            alert("Wrong username and password");
+        }
+    }
 
     return (
         <div>
             <h1 className="mb-20">Our Application Name</h1>
-            <LoginForm user={user} pass={pass} handleUser={handleUser} handlePass={handlePass}/>
+            {loggedIn ? (
+                navigate('/gallery')
+            ) : (
+                <LoginForm handleSubmit={handleSubmit} handleUser={handleUser} handlePass={handlePass} />
+            )}
         </div>
     )
 }

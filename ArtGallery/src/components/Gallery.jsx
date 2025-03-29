@@ -7,7 +7,7 @@ const Gallery = () => {
     return (
         <div>
             <Header />
-            <main className="pt-35 h-screen">
+            <main className="pt-40 h-screen">
                 <div className="container mx-auto h-full w-full px-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full w-full">
                     <div className="bg-blue-500 p-4 text-white rounded-lg h-full flex flex-col">
@@ -17,15 +17,15 @@ const Gallery = () => {
 
                     <div className="bg-blue-500 p-4 text-white rounded-lg">
                         <h2 className="text-lg font-bold">Gallery Info</h2>
-                        <p>galler info</p>
-                        <button className="bg-white p-4 text-black rounded-lg">Add Favorites</button>
+                        <p>gallery info</p>
+                        <button className="bg-white p-4 text-white rounded-lg">Add Favorites</button>
                     </div>
 
                     <div className="bg-blue-500 p-4 text-white rounded-lg">
                         <h2 className="text-lg font-bold">Paintings in Gallery</h2>
-                        <button className="bg-white p-2 text-black rounded-lg">artist</button>
-                        <button className="bg-white p-2 text-black rounded-lg">painting title</button>
-                        <button className="bg-white p-2 text-black rounded-lg">year</button>
+                        <button className="bg-white p-2 text-white rounded-lg">artist</button>
+                        <button className="bg-white p-2 text-white rounded-lg">painting title</button>
+                        <button className="bg-white p-2 text-white rounded-lg">year</button>
                         <p>paintings</p>
                     </div>
                 </div>
