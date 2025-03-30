@@ -4,8 +4,8 @@ import { useState } from "react"
 const PaintingDetails = () => {
 
     return(
-        <main className="pt-35 h-screen">
-            <div className="h-full w-full px-4">
+        <main className="h-screen w-full">
+            <div className="h-full w-full px-4 flex flex-col">
                 <div className="max-w-4xl mx-auto">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-center text-lg font-semibold">
