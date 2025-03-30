@@ -19,22 +19,22 @@ const Header = () => {
                     {/* Header will have to change names depending on which page we're in */}
                     <h1 className="text-3xl font-bold tracking-tight text-white mb-5">Art Dashboard Project Gallery View</h1>
                         <a href='./Artist'>
-                            <button className='text-white'>Artists</button>
+                            <button className='text-black'>Artists</button>
                         </a>
                         <a href='./Painting'>
-                            <button className='text-white'>Paintings</button>
+                            <button className='text-black'>Paintings</button>
                         </a>
                         <a href='./Gallery'>
-                            <button className='text-white'>Galleries</button>
+                            <button className='text-black'>Galleries</button>
                         </a>
                         <a href='./Genre'>
-                            <button className='text-white'>Genres</button>
+                            <button className='text-black'>Genres</button>
                         </a>                        
                         <a href='./Favorites'>
-                            <button className='text-white'>Favorites</button>
+                            <button className='text-black'>Favorites</button>
                         </a>                       
                         <a>
-                            <button className='text-white'>About</button>
+                            <button className='text-black'>About</button>
                         </a>
                 </div>
             </header>
