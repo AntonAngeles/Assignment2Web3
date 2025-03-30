@@ -1,13 +1,14 @@
 // This is the Artist View component
 import { useEffect, useState } from "react"
-import Header from "./Header"
+import Header from "../Header"
 import ArtistListItem from "./ArtistListItem"
 
 const Artist = () => {
 
     const [data, setData] = useState([])
-    const [error, setError ] = useState(null)
-
+    const [error, setError] = useState(null)
+    const [artInfo, setArtInfo] = useState(null)
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -36,6 +37,8 @@ const Artist = () => {
         return <p>Error: {error.message}</p>
     }
 
+
+
     return (
         <div>
             <Header />
@@ -45,6 +48,7 @@ const Artist = () => {
                         <div className="bg-blue-500 p-4 text-white rounded-lg h-full flex flex-col">
                             <h2 className="text-lg font-bold">Select Artist</h2>
                             {data.map( a => <ArtistListItem 
+                                key = {a.artistId}
                                 lastName = {a.lastName}
                                 firstName = {a.firstName}
                             />)}

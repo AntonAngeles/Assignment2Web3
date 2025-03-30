@@ -2,7 +2,7 @@
 import './App.css'
 import Login from './components/Login'
 import Gallery from './components/Gallery'
-import Artist from './components/Artist'
+import Artist from './components/ArtistView/Artist'
 import Genre from './components/Genre'
 import Painting from './components/Painting'
 import PaintingDetails from './components/PaintingDetails'
