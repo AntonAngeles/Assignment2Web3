@@ -28,7 +28,7 @@ const Login = () => {
             console.log("submitted");
             setLoggedIn(true);
         } else {
-            alert("Wrong username and password");
+            alert("Wrong Username and password. User: Bill Password: 123");
         }
     }
 

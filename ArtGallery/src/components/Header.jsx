@@ -3,16 +3,6 @@ import { Link } from 'react-router';
 
 const Header = () => {
     return (
-        // <header>
-        //     <h1>Art Dashboard Project Gallery View</h1>
-        //     <button>Artists</button>
-        //     <button>Paintings</button>
-        //     <button>Galleries</button>
-        //     <button>Genres</button>
-        //     <button>Favorites</button>
-        //     <button>About</button>
-        // </header>
-
         <div>
             <header className="fixed top-0 left-0 w-full bg-gray-800 shadow-sm z-10">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
