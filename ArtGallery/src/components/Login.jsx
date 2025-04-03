@@ -33,8 +33,8 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h1 className="mb-20">Our Application Name</h1>
+        <div className="m-10 mx-150">
+            <h1 className="text-center font-bold text-white text-2xl p-5 mb-10" >Our Application Name</h1>
             {loggedIn ? (
                 navigate('/gallery')
             ) : (
