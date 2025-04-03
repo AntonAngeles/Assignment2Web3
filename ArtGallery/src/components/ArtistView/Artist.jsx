@@ -2,12 +2,13 @@
 import { useEffect, useState } from "react"
 import Header from "../Header"
 import ArtistListItem from "./ArtistListItem"
+import ArtistInfo from "./ArtistInfo"
 
 const Artist = () => {
 
     const [data, setData] = useState([])
     const [error, setError] = useState(null)
-    const [artInfo, setArtInfo] = useState(null)
+    const [artInfo, setArtInfo] = useState([])
     
     useEffect(() => {
         const fetchData = async () => {
@@ -37,6 +38,11 @@ const Artist = () => {
         return <p>Error: {error.message}</p>
     }
 
+    const displayArtistInfo = (id) => {
+        const artistToDisplay = data.find((a) => a.artistId === id)
+        
+        setArtInfo(artistToDisplay)
+    }
 
 
     return (
@@ -49,14 +55,19 @@ const Artist = () => {
                             <h2 className="text-lg font-bold">Select Artist</h2>
                             {data.map( a => <ArtistListItem 
                                 key = {a.artistId}
+                                id = {a.artistId}
                                 lastName = {a.lastName}
                                 firstName = {a.firstName}
+                                display = {displayArtistInfo}
                             />)}
                         </div>
 
                         <div className="bg-blue-500 p-4 text-white rounded-lg">
                             <h2 className="text-lg font-bold">artist Info</h2>
                             <p>artist info</p>
+                            <ArtistInfo 
+                                data = {artInfo}
+                            />
                             <button className="bg-white p-4 text-black rounded-lg">Add Favorites</button>
                             <div>artist image</div>
                         </div>

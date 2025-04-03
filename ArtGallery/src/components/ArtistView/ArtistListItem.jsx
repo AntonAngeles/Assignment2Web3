@@ -2,7 +2,7 @@
 
 const ArtistListItem = (props) => {
     const clickHandle = (e) => {
-        
+        props.display(props.id)
     }
     return (
         <div>
