@@ -63,13 +63,11 @@ const Artist = () => {
                         </div>
 
                         <div className="bg-blue-500 p-4 text-white rounded-lg">
-                            <h2 className="text-lg font-bold">artist Info</h2>
-                            <p>artist info</p>
+                            <h2 className="text-lg font-bold">Artist Info</h2>
                             <ArtistInfo 
                                 data = {artInfo}
                             />
-                            <button className="bg-white p-4 text-black rounded-lg">Add Favorites</button>
-                            <div>artist image</div>
+                            <button className="bg-white p-4 text-black rounded-lg">Add Favorites</button>   
                         </div>
 
                         <div className="bg-blue-500 p-4 text-white rounded-lg">
