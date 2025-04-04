@@ -1,7 +1,16 @@
-@import "tailwindcss";
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-body{
-    background-image: url('../public/paintings/full/005040.jpg');
-    background-size: 100%;
+.img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/paintings/full/005040.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
+    filter: grayscale(100%);
+    z-index: -1;
 }

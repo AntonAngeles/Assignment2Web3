@@ -5,9 +5,7 @@ const ArtistListItem = (props) => {
         props.display(props.id)
     }
     return (
-        <div>
-            <p onClick={clickHandle} className="font-bold bg-blue-900 p-0.5 m-0.5 rounded-md hover:bg-blue-700 cursor-pointer">{props.lastName} {props.firstName}</p>
-        </div>
+            <p onClick={clickHandle} className="font-bold text-center bg-blue-900 p-0.5 m-1 rounded-md hover:bg-blue-700 cursor-pointer">{props.firstName} {props.lastName}</p>
     )
 }
 
