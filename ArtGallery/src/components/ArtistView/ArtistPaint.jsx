@@ -63,11 +63,11 @@ const ArtistPaint = (props) => {
                 </select>
             </div>
             {sortedPaintings.length > 0 && ( // Conditionally render the grid
-                <div className="grid grid-cols-3 grid-flow-row py-2 gap-0.5 max-h-145 overflow-x-hidden overflow-y-scrolls">
+                <div className="grid grid-cols-3 grid-flow-row py-2 gap-2 max-h-145 overflow-x-hidden overflow-y-scrolls">
                     {sortedPaintings.map((p) => {
                         const paddedFilename = String(p.imageFileName).padStart(6, "0")
                         return (
-                            <div>
+                            <div className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center">
                                 <img
                                     className="max-w-40 rounded-2xl border-2 border-gray-700"
                                     key={p.paintingId}

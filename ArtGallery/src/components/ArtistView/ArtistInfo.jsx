@@ -21,7 +21,7 @@ const ArtistInfo = (props) => {
 
     return (
         <div className="grid grid-cols-2">
-                <h3 className="col-start-1 col-end-1 text-lg font-semibold pt-1">{props.data.firstName} {props.data.lastName}</h3>
+                <h3 className="col-start-1 col-end-1 text-3xl font-semibold pt-1">{props.data.firstName} {props.data.lastName}</h3>
                 <p className="col-start-1 font-bold pt-1">Nationality: </p> 
                     <p className="col-start-1">{props.data.nationality}</p>
                 <p className="col-start-1 font-bold pt-1">Gender: </p> 
