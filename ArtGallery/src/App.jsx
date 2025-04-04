@@ -1,7 +1,7 @@
 //import { useState } from 'react'
 import './App.css'
 import Login from './components/LoginView/Login'
-import Gallery from './components/Gallery'
+import Gallery from './components/GalleryView/Gallery'
 import Artist from './components/ArtistView/Artist'
 import Genre from './components/Genre'
 import Painting from './components/Painting'

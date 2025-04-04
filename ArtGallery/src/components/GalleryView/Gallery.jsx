@@ -1,6 +1,6 @@
 // This is the Gallery View component
 import { useState } from "react"
-import Header from "./Header"
+import Header from "../Header"
 
 const Gallery = () => {
 
