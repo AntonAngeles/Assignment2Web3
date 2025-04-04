@@ -78,9 +78,6 @@ const Artist = () => {
                             <ArtistPaint 
                                 data = {artInfo}
                             />
-                            <button className="bg-white p-2 text-black rounded-lg">painting title</button>
-                            <button className="bg-white p-2 text-black rounded-lg">year</button>
-                            <p>paintings</p>
                         </div>
                     </div>
                 </div>
