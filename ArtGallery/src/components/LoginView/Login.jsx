@@ -1,7 +1,7 @@
 // This is the main login page component
 import { useState } from "react"
 import LoginForm from "./LoginForm"
-import Gallery from "../Gallery"
+import Gallery from "../GalleryView/Gallery"
 import { useNavigate } from "react-router"
 
 const Login = () => {
