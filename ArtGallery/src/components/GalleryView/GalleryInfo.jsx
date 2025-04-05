@@ -28,6 +28,7 @@ const GalleryInfo = (props) => {
                 <Map 
                     lat = {props.data.latitude}
                     long = {props.data.longitude}
+                    location = {props.data.galleryName}
                 />
 
 <button className="bg-blue-900 hover:bg-blue-700 cursor-pointer p-4 text-white font-bold rounded-lg mt-4 col-start-1 col-span-2">Add Favorites</button>

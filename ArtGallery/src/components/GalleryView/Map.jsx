@@ -19,7 +19,7 @@ const Map = (props) => {
                 />
                 <Marker position={[props.lat, props.long]}>
                     <Popup>
-                        Located here!
+                        {props.location}
                     </Popup>
                 </Marker>
                 <RecenterAutomatically lat={props.lat} long={props.long} />

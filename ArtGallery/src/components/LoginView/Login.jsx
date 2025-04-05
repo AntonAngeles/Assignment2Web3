@@ -1,7 +1,6 @@
 // This is the main login page component
 import { useState } from "react"
 import LoginForm from "./LoginForm"
-import Gallery from "../GalleryView/Gallery"
 import { useNavigate } from "react-router"
 
 const Login = () => {
@@ -33,10 +32,10 @@ const Login = () => {
     }
 
     return (
-        <div className="m-10 mx-150 flex-grow">
-            <h1 className="text-center font-bold text-white text-2xl p-5 mb-10" >Our Application Name</h1>
+        <div className="mx-150 flex-grow">
+            <h1 className="text-center font-bold text-white text-2xl p-5 mb-10 pt-30" >Our Application Name</h1>
             {loggedIn ? (
-                navigate('/gallery')
+                navigate('/Gallery')
             ) : (
                 <LoginForm handleSubmit={handleSubmit} handleUser={handleUser} handlePass={handlePass} />
             )}
