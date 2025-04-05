@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Header from "../Header"
 import GalleryListItems from "./GalleryListItem.jsx"
 import GalleryInfo from "./GalleryInfo.jsx"
+import GalleryPaintings from "./GalleryPaintings.jsx"
 
 const Gallery = () => {
 
@@ -50,7 +51,8 @@ const Gallery = () => {
                 <div className="container mx-auto h-full w-full px-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full w-full">
                         <div className="bg-blue-500 p-4 text-white rounded-lg h-full flex flex-col max-h-175">
-                            <h2 className="text-lg font-bold">Select Gallery</h2>
+                            <h2 className="text-lg font-bold text-center">Select Gallery</h2>
+                            <hr className="m-2"></hr>
                             <div className="overflow-y-auto">
                                 {data.map(g => <GalleryListItems
                                     key={g.galleryId}
@@ -61,19 +63,20 @@ const Gallery = () => {
                             </div>
                         </div>
 
-                        <div className="bg-blue-500 p-4 text-white rounded-lg">
-                            <h2 className="text-lg font-bold">Gallery Info</h2>
-                            <GalleryInfo 
-                                data = {galleryInfo}
+                        <div className="bg-blue-500 p-4 text-white text-center rounded-lg">
+                            <h2 className="text-lg font-bold text-center">Gallery Info</h2>
+                            <hr className="m-2"></hr>
+                            <GalleryInfo
+                                data={galleryInfo}
                             />
                         </div>
 
-                        <div className="bg-blue-500 p-4 text-white rounded-lg">
-                            <h2 className="text-lg font-bold">Paintings in Gallery</h2>
-                            <button className="bg-white p-2 text-black rounded-lg">artist</button>
-                            <button className="bg-white p-2 text-black rounded-lg">painting title</button>
-                            <button className="bg-white p-2 text-black rounded-lg">year</button>
-                            <p>paintings</p>
+                        <div className="bg-blue-500 p-4 text-white rounded-lg -mr-20">
+                            <h2 className="text-lg font-bold text-center">Paintings in Gallery</h2>
+                            <hr className="m-2"></hr>
+                            <GalleryPaintings
+                                data={galleryInfo}
+                            />
                         </div>
                     </div>
                 </div>
