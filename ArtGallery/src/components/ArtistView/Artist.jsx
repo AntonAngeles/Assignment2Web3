@@ -7,6 +7,8 @@ import ArtistPaint from "./ArtistPaint"
 
 const Artist = () => {
 
+    //TODO LARGE PHOTO WHEN CLICKED
+
     const [data, setData] = useState([])
     const [error, setError] = useState(null)
     const [artInfo, setArtInfo] = useState([])
@@ -72,7 +74,6 @@ const Artist = () => {
                             <ArtistInfo
                                 data = {artInfo}
                             />
-                            <button className="bg-blue-900 hover:bg-blue-700 cursor-pointer p-4 text-white font-bold rounded-lg mt-4">Add Favorites</button>
                         </div>
 
                         <div className="bg-blue-500 p-4 text-white rounded-lg max-h-175 flex flex-col -mr-20">
