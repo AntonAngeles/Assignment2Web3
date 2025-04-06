@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
+import PaintingDetails from "../PaintingModal/PaintingDetails"
 
 const GenrePaint = (props) => {
     const [paintings, setPaintings] = useState([])
     const [error, setError] = useState(null)
     const [sortOption, setSortOption] = useState("year")
+    const [selectedPainting, setSelectedPainting] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const fetchPaintings = async () => {
@@ -48,6 +51,18 @@ const GenrePaint = (props) => {
         return <p>Error loading paintings.</p>
     }
 
+    // This is for the modal box that will open when you click on a painting
+    const handlePaintingClick = (painting) => {
+        console.log("selected painting:", painting)
+        setSelectedPainting(painting);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedPainting(null);
+    };
+
     return (
         <div>
             <div className="mb-4">
@@ -65,15 +80,17 @@ const GenrePaint = (props) => {
                     <option value="artist">Artist</option>
                 </select>
             </div>
-            {   sortedPaintings.length > 0 && ( // Conditionally render the grid
+            {   sortedPaintings.length > 0 && (
                 <div className="grid grid-cols-3 grid-flow-row py-2 gap-2 max-h-145 overflow-x-hidden overflow-y-scrolls">
                     {sortedPaintings.map((p) => {
                         const paddedFilename = String(p.imageFileName).padStart(6, "0")
                         return (
-                            <div className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center">
+                            <div className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center curser-pointer"
+                                onClick={() => handlePaintingClick(p)}
+                                key={p.paintingId}
+                                >
                                 <img
                                     className="max-w-40 rounded-2xl border-2 border-gray-700"
-                                    key={p.paintingId}
                                     src={`/paintings/square/` + paddedFilename + ".jpg"}
                                     alt={p.title}
                                 />
@@ -83,7 +100,9 @@ const GenrePaint = (props) => {
                     })}
             </div>
             )}
+            <PaintingDetails isOpen={isModalOpen} onClose={closeModal} painting={selectedPainting} />
         </div>
+        
     )
 }
 

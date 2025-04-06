@@ -5,7 +5,7 @@ import Gallery from './components/GalleryView/Gallery'
 import Artist from './components/ArtistView/Artist'
 import Genre from './components/GenreView/Genre'
 import Painting from './components/PaintingsView/Painting'
-import PaintingDetails from './components/PaintingDetails'
+import PaintingDetails from './components/PaintingModal/PaintingDetails'
 import Favorites from './components/Favorite'
 import {Routes, Route} from 'react-router'
 
