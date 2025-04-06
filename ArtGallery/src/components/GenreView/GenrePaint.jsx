@@ -53,7 +53,6 @@ const GenrePaint = (props) => {
 
     // This is for the modal box that will open when you click on a painting
     const handlePaintingClick = (painting) => {
-        console.log("selected painting:", painting)
         setSelectedPainting(painting);
         setIsModalOpen(true);
     };
@@ -94,7 +93,9 @@ const GenrePaint = (props) => {
                                     src={`/paintings/square/` + paddedFilename + ".jpg"}
                                     alt={p.title}
                                 />
-                                <p> {p.title} ({p.yearOfWork})</p>
+                                <p> {p.title}</p>
+                                <p> ({p.yearOfWork})</p>
+                                <p> {p.artists.firstName} {p.artists.lastName}</p>
                             </div>
                         )
                     })}

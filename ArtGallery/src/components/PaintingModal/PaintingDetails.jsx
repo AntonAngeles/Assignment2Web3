@@ -93,9 +93,10 @@ const PaintingDetails = ({ painting, onClose, isOpen }) => {
 
                     <div className="w-1/2 pl-3">
                         <h2 className="text-2xl font-bold mb-2 text-black">{painting.title}</h2>
+                        <p className="text-black"><strong>Artist: </strong>{painting.artists.firstName} {painting.artists.lastName}</p>
                         <p className="text-black"><strong>Description: </strong>{painting.description}</p>
                         <p className="text-black"><strong>Year: </strong>{painting.yearOfWork}</p>
-                        {/* <p className="text-black"><strong>Gallery Name: </strong>{galleries.galleryName}</p> */}
+                        {/* <p className="text-black"><strong>Gallery Name: </strong>{painting.galleries.galleryName}</p> */}
                         {/* <p className="text-black"><strong>Gallery City: </strong>{painting.galleries.galleryCity}</p> */}
                         <p className="text-black"><strong>Museum Link: </strong>{painting.museumLink}</p>
                         <p className="text-black"><strong>Medium: </strong>{painting.medium}</p>
@@ -103,8 +104,28 @@ const PaintingDetails = ({ painting, onClose, isOpen }) => {
                         <p className="text-black"><strong>WikiLink: </strong>{painting.wikiLink}</p>
                         <p className="text-black"><strong>Copyright: </strong>{painting.copyrightText}</p>
 
-                        <h3 className="font-semibold mb-2">Dominant Colours</h3>
-                        {/* Add dominant colors here if available */}
+                        <br></br>
+                        
+                        <h3 className="font-semibold mb-2 text-black"><strong>Dominant Colours</strong></h3>
+                        <div className="flex gap-2">
+                            {(() => {
+                                try {
+                                const annotations = JSON.parse(painting.jsonAnnotations); //Parsing JSON string 
+                                const colors = annotations.dominantColors;
+
+                                return colors.map((colorObj, index) => (
+                                    <div
+                                    key={index}
+                                    title={colorObj.name}
+                                    className="w-6 h-6 border border-black"
+                                    style={{ backgroundColor: colorObj.web }}
+                                    />
+                                ));
+                                } catch (e) {
+                                return <p className="text-black">Error!!</p>;
+                                }
+                            })()}
+                        </div>
                     </div>
                 </div>
             </div>
