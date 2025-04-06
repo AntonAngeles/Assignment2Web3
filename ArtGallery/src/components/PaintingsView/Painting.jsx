@@ -109,12 +109,12 @@ const Painting = () => {
             <Header />
             <main className="pt-35 h-screen">
                 <div className="h-full w-full px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 h-full w-full">
-                        <div className="bg-blue-500 p-4 text-white rounded-lg md:col-span-2 flex flex-col">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full w-full">
+                        <div className="bg-blue-500 p-4 text-white rounded-lg md:col-span-1 flex flex-col">
                             <h2 className="text-lg font-bold">Select Painting</h2>
                             <hr className="m-2"></hr>
                             {/* Painting Title Filter*/}
-                            <div className="pt-4 flex items-center space-x-4">
+                            <div className="pt-4 flex items-center space-x-4 p-7">
                                 <input
                                     type="radio"
                                     name="paintingFilter"
@@ -153,7 +153,7 @@ const Painting = () => {
                             </div>
 
                             {/* Painting Artist Filter*/}
-                            <div>
+                            <div className="pt-4 flex items-center space-x-4 p-7">
                                 <input
                                     type="radio"
                                     name="paintingFilter"
@@ -198,7 +198,7 @@ const Painting = () => {
                             </div>
 
                             {/* Painting Gallery Filter*/}
-                            <div>
+                            <div className="pt-4 flex items-center space-x-4 p-7">
                                 <input
                                     type="radio"
                                     name="paintingFilter"
@@ -242,7 +242,7 @@ const Painting = () => {
                             </div>
 
                             {/* Year Filter */}
-                            <div className="pt-4 flex flex-col space-y-4 border border-white p-3">
+                            <div className="pt-4 flex flex-col space-y-4 border border-white p-4">
                             <div className="flex items-center">
                                 <input
                                 type="radio"
@@ -305,7 +305,7 @@ const Painting = () => {
                                                         
 
                             {/*Buttons*/}
-                            <div className="flex space-x-2 mt-4">
+                            <div className="flex space-x-2 mt-4 p-4">
                                 <button
                                     className="bg-white px-3 py-1 text-black rounded-lg text-sm"
                                     onClick={() => setSelectedPaintings(filteredPaintings)}
@@ -341,7 +341,7 @@ const Painting = () => {
                                     id="sortOption"
                                     value={sortOption}
                                     onChange={handleSortChange}
-                                    className="border p-2 rounded bg-white text-black"
+                                    className="border p-2 rounded bg-blue-500 text-white"
                                 >
                                     <option value="title">Title</option>
                                     <option value="year">Year</option>
@@ -350,28 +350,30 @@ const Painting = () => {
                             </div>
 
                             <div className="overflow-y-auto">
-                            {selectedPaintings.length === 0 ? (
-                                <p>No paintings found for the selected filters.</p>
-                            ) : (
-                                sortedPaintings.map(p => {
-                                const paddedFilename = String(p.imageFileName).padStart(6, "0");
-                                return (
-                                    <div key={p.paintingId} className="mb-4">
-                                        <img
-                                            className="max-w-40 rounded-2xl border-2 border-gray-700"
+                                {selectedPaintings.length === 0 ? (
+                                    <p>No paintings found for the selected filters.</p>
+                                ) : (
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    {sortedPaintings.map(p => {
+                                        const paddedFilename = String(p.imageFileName).padStart(6, "0");
+                                        return (
+                                        <div key={p.paintingId} className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center">
+                                            <img
+                                            className="w-full rounded-2xl border-2 border-gray-700 mb-2"
                                             src={`/paintings/square/${paddedFilename}.jpg`}
                                             alt={p.title}
-                                        />
-                                        <p><strong>Artist: </strong>{p.artists.firstName} {p.artists.lastName}</p>
-                                        <p><strong>Title: </strong>{p.title}</p>
-                                        <p><strong>Year: </strong>{p.yearOfWork}</p>
-                                        <p><strong>Gallery: </strong>{p.galleries.galleryName}</p>
-                                        <p><strong>Medium: </strong>{p.medium}</p>
-                                        <p><strong>Measurement: </strong>{p.width} x {p.height}</p>
+                                            />
+                                            <p><strong>Artist: </strong>{p.artists.firstName} {p.artists.lastName}</p>
+                                            <p><strong>Title: </strong>{p.title}</p>
+                                            <p><strong>Year: </strong>{p.yearOfWork}</p>
+                                            <p><strong>Gallery: </strong>{p.galleries.galleryName}</p>
+                                            <p><strong>Medium: </strong>{p.medium}</p>
+                                            <p><strong>Measurement: </strong>{p.width} x {p.height}</p>
+                                        </div>
+                                        );
+                                    })}
                                     </div>
-                                );
-                            })
-                            )}
+                                )}
                             </div>
                         </div>
                     </div>
