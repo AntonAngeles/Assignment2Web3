@@ -81,7 +81,7 @@ const GenrePaint = (props) => {
                 </select>
             </div>
             {   sortedPaintings.length > 0 && (
-                <div className="grid grid-cols-3 grid-flow-row py-2 gap-2 max-h-145 overflow-x-hidden overflow-y-scrolls">
+                <div className="grid grid-cols-3 grid-flow-row py-2 gap-2 max-h-80 overflow-y-auto">
                     {sortedPaintings.map((p) => {
                         const paddedFilename = String(p.imageFileName).padStart(6, "0")
                         return (
