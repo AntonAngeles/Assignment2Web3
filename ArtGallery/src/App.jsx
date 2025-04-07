@@ -10,35 +10,40 @@ import { Routes, Route } from 'react-router';
 import { useEffect, useState } from 'react';
 
 function App() {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const baseUrl = import.meta.env.VITE_URL;
+
   const [artData, setArtData] = useState([]);
   const [paintings, setPaintings] = useState([]);
   const [galleryData, setGalleryData] = useState([]);
   const [galleryPaintings, setGalleryPaintings] = useState([]);
+  const [genreData, setGenreData] = useState([]);
   const [genrePaintings, setGenrePaintings] = useState([]);
+  const [error, setError] = useState(null);
 
-  // ARTIST FETCH
-  useEffect(() => {
-    const fetchArtists = async () => {
-      try {
-        const url = import.meta.env.VITE_URL + '/artists';
-        const resp = await fetch(url, {
-          headers: {
-            APIKEY: import.meta.env.VITE_API_KEY,
-          },
-        });
-
-        if (!resp.ok) {
-          throw new Error(`HTTP error! status: ${resp.status}`);
+  function useFetch(url, apiKey, setter, setError) {
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const resp = await fetch(url, {
+            headers: { APIKEY: apiKey },
+          });
+          if (!resp.ok) {
+            throw new Error(`HTTP error! status: ${resp.status}`);
+          }
+          const data = await resp.json();
+          setter(data);
+        } catch (err) {
+          setError(err);
         }
+      };
+      fetchData();
+    }, [url, apiKey, setter, setError]);
+  }
 
-        const fetchedData = await resp.json();
-        setArtData(fetchedData);
-      } catch (err) {
-        setError(err);
-      }
-    };
-    fetchArtists();
-  }, []);
+  useFetch(`${baseUrl}/artists`, apiKey, setArtData, setError);
+  useFetch(`${baseUrl}/galleries`, apiKey, setGalleryData, setError);
+  useFetch(`${baseUrl}/genres`, apiKey, setGenreData, setError);
 
   // ARTIST PAINTING FETCH
   const fetchPaintingsByArtist = async (artistId) => {
@@ -66,30 +71,6 @@ function App() {
     }
   };
 
-  // GALLERY FETCH
-  useEffect(() => {
-    const fetchGalleries = async () => {
-      try {
-        const url = import.meta.env.VITE_URL + '/galleries';
-        const resp = await fetch(url, {
-          headers: {
-            APIKEY: import.meta.env.VITE_API_KEY,
-          },
-        });
-
-        if (!resp.ok) {
-          throw new Error(`HTTP error! status: ${resp.status}`);
-        }
-
-        const fetchedData = await resp.json();
-        setGalleryData(fetchedData);
-      } catch (err) {
-        setError(err);
-      }
-    };
-    fetchGalleries();
-  }, []);
-
   // GALLERY PAINTINGS FETCH
   const fetchPaintingsByGallery = async (galleryId) => {
     if (galleryId) {
@@ -115,32 +96,6 @@ function App() {
       setGalleryPaintings([]);
     }
   };
-
-  // GENRE FETCH
-  const [genreData, setGenreData] = useState([]);
-
-  useEffect(() => {
-    const fetchGenreData = async () => {
-      try {
-        const url = import.meta.env.VITE_URL + '/genres';
-        const resp = await fetch(url, {
-          headers: {
-            APIKEY: import.meta.env.VITE_API_KEY,
-          },
-        });
-
-        if (!resp.ok) {
-          throw new Error(`HTTP error! status: ${resp.status}`);
-        }
-
-        const fetchedData = await resp.json();
-        setGenreData(fetchedData);
-      } catch (err) {
-        setError(err);
-      }
-    };
-    fetchGenreData();
-  }, []);
 
   // GENRE PAINTINGS
   const fetchPaintingsByGenre = async (genreId) => {
@@ -168,7 +123,6 @@ function App() {
     }
   };
 
-  // Create a wrapper function
   const handleGenreSelection = (genreId) => {
     fetchPaintingsByGenre(genreId);
   };
