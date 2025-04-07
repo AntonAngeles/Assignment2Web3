@@ -70,9 +70,9 @@ const Favorites = (props) => {
                     <h2 className="text-lg font-semibold mb-2">Artists</h2>
                     <div className="border p-4 flex-grow overflow-auto">
                         {artists.length > 0 ? ( //If the list contains information, dispay the information. If non, display message
-                                artists.map((g) => (
-                                    <div key={g.id}>
-                                        <p>{g.name}</p>
+                                artists.map((a) => (
+                                    <div key={a.id}>
+                                        <p>{a.firstName} {a.lastName}</p>
                                     </div>
                                 ))
                             ) : (
@@ -90,9 +90,9 @@ const Favorites = (props) => {
                     <h2 className="text-lg font-semibold mb-2">Paintings</h2>
                     <div className="border p-4 flex-grow overflow-auto">
                         {paintings.length > 0 ? ( //If the list contains information, dispay the information. If non, display message
-                                paintings.map((g) => (
-                                    <div key={g.id}>
-                                        <p>{g.name}</p>
+                                paintings.map((p) => (
+                                    <div key={p.id}>
+                                        <p>{p.title}</p>
                                     </div>
                                 ))
                             ) : (
