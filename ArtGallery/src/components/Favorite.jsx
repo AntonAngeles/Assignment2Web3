@@ -49,7 +49,7 @@ const Favorites = (props) => {
                 <div className="flex flex-col">
                     <h2 className="text-lg font-semibold mb-2">Galleries</h2>
                     <div className="border p-4 flex-grow overflow-auto">
-                    {galleries.length > 0 ? (
+                    {galleries.length > 0 ? ( //If the list contains information, dispay the information. If non, display message
                                 galleries.map((g) => (
                                     <div key={g.id}>
                                         <p>{g.name}</p>
@@ -69,7 +69,7 @@ const Favorites = (props) => {
                 <div className="flex flex-col">
                     <h2 className="text-lg font-semibold mb-2">Artists</h2>
                     <div className="border p-4 flex-grow overflow-auto">
-                        {artists.length > 0 ? (
+                        {artists.length > 0 ? ( //If the list contains information, dispay the information. If non, display message
                                 artists.map((g) => (
                                     <div key={g.id}>
                                         <p>{g.name}</p>
@@ -89,7 +89,7 @@ const Favorites = (props) => {
                 <div className="flex flex-col">
                     <h2 className="text-lg font-semibold mb-2">Paintings</h2>
                     <div className="border p-4 flex-grow overflow-auto">
-                        {paintings.length > 0 ? (
+                        {paintings.length > 0 ? ( //If the list contains information, dispay the information. If non, display message
                                 paintings.map((g) => (
                                     <div key={g.id}>
                                         <p>{g.name}</p>
