@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import PaintingDetails from '../PaintingModal/PaintingDetails';
 
 const GalleryPaintings = (props) => {
   const [sortOption, setSortOption] = useState('year');
+  const [selectedPainting, setSelectedPainting] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const sortedPaintings = [...props.paintings].sort((a, b) => {
     if (sortOption === 'year') {
@@ -12,6 +15,17 @@ const GalleryPaintings = (props) => {
       return a.artists.firstName.localeCompare(b.artists.firstName);
     }
   });
+
+  // This is for the modal box that will open when you click on a painting
+  const handlePaintingClick = (painting) => {
+    setSelectedPainting(painting);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedPainting(null);
+  };
 
   return (
     <div>
@@ -35,7 +49,9 @@ const GalleryPaintings = (props) => {
           {sortedPaintings.map((p) => {
             const paddedFilename = String(p.imageFileName).padStart(6, '0');
             return (
-              <div className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center">
+              <div className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center"
+                    onClick={() => handlePaintingClick(p)}
+              >
                 <img
                   className="max-w-40 rounded-2xl border-2 border-gray-700"
                   key={p.paintingId}
@@ -51,6 +67,7 @@ const GalleryPaintings = (props) => {
           })}
         </div>
       )}
+      <PaintingDetails isOpen={isModalOpen} onClose={closeModal} painting={selectedPainting} update={props.update} />
     </div>
   );
 };
