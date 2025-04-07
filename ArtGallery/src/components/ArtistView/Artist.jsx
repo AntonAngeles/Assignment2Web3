@@ -45,7 +45,7 @@ const Artist = (props) => {
             <div className="bg-blue-500 p-4 text-white rounded-lg max-h-175 flex flex-col -mr-20">
               <h2 className="text-lg font-bold text-center">Artist Painting</h2>
               <hr className="m-2"></hr>
-              <ArtistPaint paintings={props.paintings} />
+              <ArtistPaint paintings={props.paintings} update={props.favPaint}/>
             </div>
           </div>
         </div>

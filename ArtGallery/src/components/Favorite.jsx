@@ -1,11 +1,13 @@
 // // This will be the favorites page
-import { useState } from "react"
+import { use, useState } from "react"
+import { useNavigate } from "react-router"
 
 const Favorites = (props) => {
     // Local state for galleries, artists, and paintings
     const [galleries, setGalleries] = useState(props.galleries)
     const [artists, setArtists] = useState(props.artists)
     const [paintings, setPaintings] = useState(props.paintings)
+    const navigate = useNavigate()
 
     // This will handle emptying the favorites buttons
     const handleEmptyFavorites = () => {
@@ -26,6 +28,10 @@ const Favorites = (props) => {
     const handleEmptyPaintings = () => {
         setPaintings([])
     }
+    
+    const handleClose = () => {
+      navigate(-1)
+    }
 
     return(
         <div className="h-screen w-full flex justify-center items-center">
@@ -35,11 +41,11 @@ const Favorites = (props) => {
                 <div className="space-x-2">
                     <button 
                         onClick={handleEmptyFavorites}
-                        className="px-4 py-2 bg-gray-200 rounded border border-gray-300"
+                        className="px-4 py-2 bg-gray-200 rounded border border-gray-300 hover:bg-red-300 cursor-pointer"
                     >
                         Empty Favorites
                     </button>
-                    <button className="px-4 py-2 bg-gray-200 rounded border border-gray-300">
+                    <button onClick={handleClose} className="px-4 py-2 bg-gray-200 rounded border border-gray-300 hover:bg-red-300 cursor-pointer">
                         Close
                     </button>
                 </div>
@@ -89,7 +95,7 @@ const Favorites = (props) => {
                 <div className="flex flex-col">
                     <h2 className="text-lg font-semibold mb-2">Paintings</h2>
                     <div className="border p-4 flex-grow overflow-auto">
-                        {paintings.length > 0 ? ( //If the list contains information, dispay the information. If non, display message
+                        {paintings.length > 0 ? ( //If the list contains information, display the information. If non, display message
                                 paintings.map((p) => (
                                     <div key={p.id}>
                                         <p>{p.title}</p>

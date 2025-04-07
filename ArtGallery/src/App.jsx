@@ -155,6 +155,7 @@ function App() {
               fetchPaintings={fetchPaintingsByGallery}
               paintings={galleryPaintings}
               update={galleriesAddToFavorites}
+              favPaint={paintingsAddToFavorites}
             />
           }
         />
@@ -166,6 +167,7 @@ function App() {
               fetchPaintings={fetchPaintingsByArtist}
               paintings={paintings}
               update={artAddToFavorites}
+              favPaint={paintingsAddToFavorites}
             />
           }
         />
