@@ -63,17 +63,27 @@
 
 import { useState } from "react";
 
-const PaintingDetails = ({ painting, onClose, isOpen }) => {
+const PaintingDetails = ({ painting, onClose, isOpen, update }) => {
     // If there is no painting, it will not render
     if (!isOpen || !painting) return null;
+
+    const addToFavorites = () => {
+        update(painting.title)
+        alert(`${painting.title} added to favorites!`)
+    }
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
             <div className="bg-white rounded-lg shadow-lg max-w-4xl w-full mx-4 p-4">
-                <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-center text-lg font-semibold">
+                <div className="grid grid-cols-3 gap-5 justify-between items-center mb-4">
+                    <h3 className="text-center text-lg font-semibold text-black">
                         Painting Details
                     </h3>
+                    
+                    <button 
+                        onClick={addToFavorites}
+                        className="bg-black px-3 py-1 text-white rounded-lg text-sm hover:bg-green-700 cursor-pointer"
+                    >Add to Favorites</button>
                     <button
                         className="bg-black px-3 py-1 text-white rounded-lg text-sm hover:bg-red-900 cursor-pointer"
                         onClick={onClose}
@@ -98,10 +108,10 @@ const PaintingDetails = ({ painting, onClose, isOpen }) => {
                         <p className="text-black"><strong>Year: </strong>{painting.yearOfWork}</p>
                         {/* <p className="text-black"><strong>Gallery Name: </strong>{painting.galleries.galleryName}</p> */}
                         {/* <p className="text-black"><strong>Gallery City: </strong>{painting.galleries.galleryCity}</p> */}
-                        <p className="text-black"><strong>Museum Link: </strong>{painting.museumLink}</p>
+                        <a href={painting.museumLink} className="text-black"><strong>Museum Link: </strong><p className="underline">{painting.museumLink}</p></a>
                         <p className="text-black"><strong>Medium: </strong>{painting.medium}</p>
                         <p className="text-black"><strong>Measurement: </strong>{painting.width} x {painting.height}</p>
-                        <p className="text-black"><strong>WikiLink: </strong>{painting.wikiLink}</p>
+                        <a href={painting.wikiLink} className="text-black"><strong>WikiLink: </strong><p className="underline">{painting.wikiLink}</p></a>
                         <p className="text-black"><strong>Copyright: </strong>{painting.copyrightText}</p>
 
                         <br></br>

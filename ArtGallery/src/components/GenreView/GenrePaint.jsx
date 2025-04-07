@@ -71,7 +71,7 @@ return (
                 })}
         </div>
         )}
-        <PaintingDetails isOpen={isModalOpen} onClose={closeModal} painting={selectedPainting} />
+        <PaintingDetails isOpen={isModalOpen} onClose={closeModal} painting={selectedPainting} update={props.update} />
     </div>
     
 )

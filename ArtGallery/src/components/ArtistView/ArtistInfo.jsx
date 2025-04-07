@@ -11,6 +11,7 @@ const ArtistInfo = (props) => {
 
     const addToFavorites = () => {
         props.update(props.data.firstName, props.data.lastName)
+        alert(`${props.data.firstName} ${props.data.lastName} added to Favorites`)
     }
 
 

@@ -183,6 +183,11 @@ function App() {
     setFavGalleries(prevFavGalleries => [...prevFavGalleries, {name}])
   }
 
+  const [favPaintings, setFavPaintings] = useState([])
+  const paintingsAddToFavorites = (title) => {
+    setFavPaintings(prevFavPaintings => [...prevFavPaintings, {title}])
+  }
+
   return (
     <main>
       <Routes>
@@ -217,12 +222,18 @@ function App() {
               data={genreData}
               fetchPaintings={handleGenreSelection} // Pass the wrapper
               paintings={genrePaintings}
+              update={paintingsAddToFavorites}
             />
           }
         />
         <Route path="/painting" element={<Painting />} />
         <Route path="/paintingdetails" element={<PaintingDetails />} />
-        <Route path="/favorites" element={<Favorites artists={favArtists} galleries={favGalleries}/>} />
+        <Route path="/favorites" element={
+          <Favorites
+            artists={favArtists}
+            galleries={favGalleries}
+            paintings={favPaintings}
+          />} />
       </Routes>
     </main>
   );

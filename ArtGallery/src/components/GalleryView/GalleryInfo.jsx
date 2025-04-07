@@ -5,6 +5,7 @@ const GalleryInfo = (props) => {
 
     const addToFavorites = () => {
         props.update(props.data.galleryName)
+        alert(`${props.data.galleryName} added to favorites!`)
     }
 
     if (props.data.galleryId === undefined) {

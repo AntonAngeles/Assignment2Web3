@@ -50,7 +50,7 @@ const Genre = (props) => {
             <div className="bg-blue-500 p-4 text-white rounded-lg md:col-span-3 md:row-span-3 max-h-121">
               <h2 className="text-lg font-bold">Genre Painting</h2>
               <hr className="m-2 "></hr>
-              <GenrePaint paintings={props.paintings} />
+              <GenrePaint paintings={props.paintings} update={props.update} />
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ const Favorites = (props) => {
 
                 <div className="grid grid-cols-3 gap-4 flex-grow">
                     <div>
-                        <h2 className="text-lg font-semibold mb-2">galleries</h2>
+                        <h2 className="text-lg font-semibold mb-2">Galleries</h2>
                         <div className="border p-4 h-full">
                             {props.galleries.map(g => 
                                 <p>{g.name}</p>
@@ -23,7 +23,7 @@ const Favorites = (props) => {
                         </div>
                     </div>
                     <div>
-                        <h2 className="text-lg font-semibold mb-2">artists</h2>
+                        <h2 className="text-lg font-semibold mb-2">Artists</h2>
                         <div className="border p-4 h-full">
                             {props.artists.map(a => 
                                 <p>{a.firstName} {a.lastName}</p>
@@ -31,9 +31,11 @@ const Favorites = (props) => {
                         </div>
                     </div>
                     <div>
-                        <h2 className="text-lg font-semibold mb-2">paintings</h2>
+                        <h2 className="text-lg font-semibold mb-2">Paintings</h2>
                         <div className="border p-4 h-full">
-                            <p>Painting titles</p>
+                            {props.paintings.map(p => 
+                                <p>{p.title}</p>
+                            )}
                         </div>
                     </div>
                 </div>
