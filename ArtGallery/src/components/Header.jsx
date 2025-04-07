@@ -8,7 +8,7 @@ const Header = () => {
     // Button styling
     const getButtonStyle = (path) => {
         return current === path 
-        ? 'bg-green-400 opacity-50 cursor-not-allowed'  : 'bg-blue-900 hover:bg-blue-700';
+        ? 'bg-green-400 opacity-50 cursor-not-allowed'  : 'bg-blue-900 hover:bg-blue-700 cursor-pointer';
     };
 
     // This is where the header title will change based on which page you are on
@@ -24,8 +24,6 @@ const Header = () => {
                 return 'Genre';
             case '/Favorites':
                 return 'Your Favorites';
-            case '/':
-                return 'About This Project';
         }
     };
 
@@ -59,7 +57,6 @@ const Header = () => {
                     {navButton('Galleries', '/Gallery')}
                     {navButton('Genres', '/Genre')}
                     {navButton('Favorites', '/Favorites')}
-                    {navButton('About', '/')}
                 </div>
             </header>
         </div>

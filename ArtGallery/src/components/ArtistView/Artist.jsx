@@ -39,7 +39,7 @@ const Artist = (props) => {
             <div className="bg-blue-500 p-4 text-white rounded-lg max-h-175 flex flex-col">
               <h2 className="text-lg font-bold text-center">Artist Info</h2>
               <hr className="m-2"></hr>
-              <ArtistInfo data={artInfo} />
+              <ArtistInfo data={artInfo} update={props.update} />
             </div>
 
             <div className="bg-blue-500 p-4 text-white rounded-lg max-h-175 flex flex-col -mr-20">

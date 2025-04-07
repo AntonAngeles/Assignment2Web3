@@ -173,6 +173,16 @@ function App() {
     fetchPaintingsByGenre(genreId);
   };
 
+  const [favArtists, setFavArtists] = useState([])
+  const artAddToFavorites = (firstName, lastName) => {
+    setFavArtists(prevFavArtists => [...prevFavArtists, { firstName, lastName }])
+  }
+
+  const [favGalleries, setFavGalleries] = useState([])
+  const galleriesAddToFavorites = (name) => {
+    setFavGalleries(prevFavGalleries => [...prevFavGalleries, {name}])
+  }
+
   return (
     <main>
       <Routes>
@@ -185,6 +195,7 @@ function App() {
               data={galleryData}
               fetchPaintings={fetchPaintingsByGallery}
               paintings={galleryPaintings}
+              update={galleriesAddToFavorites}
             />
           }
         />
@@ -195,6 +206,7 @@ function App() {
               data={artData}
               fetchPaintings={fetchPaintingsByArtist}
               paintings={paintings}
+              update={artAddToFavorites}
             />
           }
         />
@@ -210,7 +222,7 @@ function App() {
         />
         <Route path="/painting" element={<Painting />} />
         <Route path="/paintingdetails" element={<PaintingDetails />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites artists={favArtists} galleries={favGalleries}/>} />
       </Routes>
     </main>
   );

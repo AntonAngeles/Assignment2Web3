@@ -1,10 +1,10 @@
 // This will be the favorites page
 import { useState } from "react"
 
-const Favorites = () => {
+const Favorites = (props) => {
     return(
-        <main className="h-screen w-full">
-            <div className="h-full w-full px-4 flex flex-col">
+        <div className="h-screen w-full">
+            <div className="h-3/4 w-3/4 mx-75 px-4 flex flex-col bg-white ">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-xl font-semibold">Favorites</h2>
                         <div className="space-x-2">
@@ -17,13 +17,17 @@ const Favorites = () => {
                     <div>
                         <h2 className="text-lg font-semibold mb-2">galleries</h2>
                         <div className="border p-4 h-full">
-                            <p>Gallery name.</p>
+                            {props.galleries.map(g => 
+                                <p>{g.name}</p>
+                            )}
                         </div>
                     </div>
                     <div>
                         <h2 className="text-lg font-semibold mb-2">artists</h2>
                         <div className="border p-4 h-full">
-                            <p>artist names</p>
+                            {props.artists.map(a => 
+                                <p>{a.firstName} {a.lastName}</p>
+                            )}
                         </div>
                     </div>
                     <div>
@@ -34,7 +38,7 @@ const Favorites = () => {
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     )
 }
 

@@ -2,6 +2,11 @@ import { useEffect } from 'react'
 import Map from "./Map"
 
 const GalleryInfo = (props) => {
+
+    const addToFavorites = () => {
+        props.update(props.data.galleryName)
+    }
+
     if (props.data.galleryId === undefined) {
         return <p>Please click a Gallery</p>
     } else {
@@ -23,7 +28,7 @@ const GalleryInfo = (props) => {
                     location = {props.data.galleryName}
                 />
 
-<button className="bg-blue-900 hover:bg-blue-700 cursor-pointer p-4 text-white font-bold rounded-lg mt-4 col-start-1 col-span-2">Add Favorites</button>
+<button onClick={addToFavorites} className="bg-blue-900 hover:bg-blue-700 cursor-pointer p-4 text-white font-bold rounded-lg mt-4 col-start-1 col-span-2">Add Favorites</button>
             </div>
         )
     }

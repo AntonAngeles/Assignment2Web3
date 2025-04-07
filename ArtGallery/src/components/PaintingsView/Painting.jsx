@@ -264,7 +264,7 @@ const Painting = () => {
 
                             <div className="flex items-center space-x-2">
                                 <label className="block text-sm font-medium text-white">Less</label>
-                                <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 outline-gray-300">
+                                <div className="flex items-center rounded-md bg-white pl-3 outline-1 outline-gray-300">
                                 <input
                                     type="text"
                                     value={yearLess}
@@ -284,7 +284,7 @@ const Painting = () => {
 
                             <div className="flex items-center space-x-2">
                                 <label className="block text-sm font-medium text-white">More</label>
-                                <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 outline-gray-300">
+                                <div className="flex items-center rounded-md bg-white pl-3 outline-1 outline-gray-300">
                                 <input
                                     type="text"
                                     value={yearMore}

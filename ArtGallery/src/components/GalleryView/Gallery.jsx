@@ -37,7 +37,7 @@ const Gallery = (props) => {
             <div className="bg-blue-500 p-4 text-white text-center rounded-lg">
               <h2 className="text-lg font-bold text-center">Gallery Info</h2>
               <hr className="m-2"></hr>
-              <GalleryInfo data={galleryInfo} />
+              <GalleryInfo data={galleryInfo} update={props.update}/>
             </div>
 
             <div className="bg-blue-500 p-4 text-white rounded-lg -mr-20">

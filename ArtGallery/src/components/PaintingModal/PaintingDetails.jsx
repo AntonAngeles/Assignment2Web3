@@ -75,7 +75,7 @@ const PaintingDetails = ({ painting, onClose, isOpen }) => {
                         Painting Details
                     </h3>
                     <button
-                        className="bg-white px-3 py-1 text-black rounded-lg text-sm"
+                        className="bg-black px-3 py-1 text-white rounded-lg text-sm hover:bg-red-900 cursor-pointer"
                         onClick={onClose}
                     >
                         Close

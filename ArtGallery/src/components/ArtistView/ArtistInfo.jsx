@@ -9,13 +9,8 @@ const ArtistInfo = (props) => {
         gender = ""
     }
 
-    const getLink = (link) => {
-        if (link) {
-            return (link)
-        } else {
-            return ""
-        }
-
+    const addToFavorites = () => {
+        props.update(props.data.firstName, props.data.lastName)
     }
 
 
@@ -36,9 +31,9 @@ const ArtistInfo = (props) => {
                     <img className="col-start-2 row-start-1 row-end-7 rounded-2xl border-2 border-gray-700" src={'/artists/square/' + props.data.artistId + '.jpg'} />
                     <h4 className="col-start-1 font-bold py-1">Description</h4>
                     <p className="col-start-1 col-end-3 bg-white text-black rounded-2xl p-2 mb-5 max-h-40 overflow-y-auto">{props.data.details}</p>
-                    <a className="underline" href={props.data.artistLink}>{getLink(props.data.artistLink)}</a>
+                    <a className="underline" href={props.data.artistLink}>{props.data.artistLink}</a>
 
-                    <button className="bg-blue-900 hover:bg-blue-700 cursor-pointer p-4 text-white font-bold rounded-lg mt-4 col-start-1 col-span-2">Add Favorites</button>
+                    <button className="bg-blue-900 hover:bg-blue-700 cursor-pointer p-4 text-white font-bold rounded-lg mt-4 col-start-1 col-span-2" onClick={addToFavorites}>Add Favorites</button>
             </div>
         )
     }
