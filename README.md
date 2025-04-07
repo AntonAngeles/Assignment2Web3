@@ -1,5 +1,5 @@
 # COMP 4513 (Winter 2025)
-### Assignment #2: Node, SQL (via supabase), React
+### Assignment #2: Node, SQL (via supabase), React, Tailwind
 
 ## Overview
 This is A React application using the API from Assignment 1
