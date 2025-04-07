@@ -2,7 +2,7 @@
 ### Assignment #2: Node, SQL (via supabase), React, Tailwind
 
 ## Overview
-This is A React application using the API from Assignment 1
+This is a React application using the API from Assignment 1
 
 ![NodeJS](https://badgen.net/static/NodeJS/22.11.0/green) ![Express](https://badgen.net/static/Express/4.21.2/blue) ![Supabase](https://badgen.net/static/Supabase/2.48.1/red) ![React](https://badgen.net/static/React/v19)
 
