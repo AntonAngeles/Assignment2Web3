@@ -47,8 +47,8 @@ const PaintingDetails = ({ painting, onClose, isOpen, update }) => {
                         <p className="text-black"><strong>Artist: </strong>{painting.artists.firstName} {painting.artists.lastName}</p>
                         <p className="text-black"><strong>Description: </strong>{painting.description}</p>
                         <p className="text-black"><strong>Year: </strong>{painting.yearOfWork}</p>
-                        {/* <p className="text-black"><strong>Gallery Name: </strong>{painting.galleries.galleryName}</p> */}
-                        {/* <p className="text-black"><strong>Gallery City: </strong>{painting.galleries.galleryCity}</p> */}
+                        <p className="text-black"><strong>Gallery Name: </strong>{painting.galleries.galleryName}</p>
+                        <p className="text-black"><strong>Gallery City: </strong>{painting.galleries.galleryCity}</p>
                         <a href={painting.museumLink} className="text-black"><strong>Museum Link: </strong><p className="underline">{painting.museumLink}</p></a>
                         <p className="text-black"><strong>Medium: </strong>{painting.medium}</p>
                         <p className="text-black"><strong>Measurement: </strong>{painting.width} x {painting.height}</p>
