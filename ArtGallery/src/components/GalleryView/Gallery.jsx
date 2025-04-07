@@ -45,7 +45,7 @@ const Gallery = (props) => {
                 Paintings in Gallery
               </h2>
               <hr className="m-2"></hr>
-              <GalleryPaintings paintings={props.paintings} />
+              <GalleryPaintings paintings={props.paintings} update={props.favPaint}/>
             </div>
           </div>
         </div>
