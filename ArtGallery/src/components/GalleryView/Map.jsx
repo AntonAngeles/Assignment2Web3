@@ -11,7 +11,7 @@ const RecenterAutomatically = ({ lat, long }) => {
 
 const Map = (props) => {
     return (
-            <MapContainer className='h-60' center={[props.lat, props.long]} zoom={13} >
+            <MapContainer className='h-60' center={[props.lat, props.long]} zoom={13} style={{zIndex: 0}} >
                 <TileLayer
                     attribution='&copy; <a 
                     href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
