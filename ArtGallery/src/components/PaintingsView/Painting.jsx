@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../Header";
+import PaintingDetails from "../PaintingModal/PaintingDetails";
 
 const Painting = () => {
     const [data, setData] = useState([]);
@@ -12,6 +13,8 @@ const Painting = () => {
     const [yearMore, setYearMore] = useState("");
     const [filterType, setFilterType] = useState("");
     const [sortOption, setSortOption] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false); //added this
+    const [paintingDetails, setPaintingDetails] = useState([]); //added this
 
     useEffect(() => {
         const fetchData = async () => {
@@ -103,6 +106,17 @@ const Painting = () => {
             return nameA.localeCompare(nameB);
         });
     }    
+
+    // This is for the modal box that will open when you click on a painting
+        const handlePaintingClick = (painting) => {
+            setPaintingDetails(painting);
+            setIsModalOpen(true);
+        };
+
+        const closeModal = () => {
+            setIsModalOpen(false);
+            setPaintingDetails(null);
+        };
 
     return (
         <div>
@@ -349,36 +363,45 @@ const Painting = () => {
                                 </select>
                             </div>
 
-                            <div className="overflow-y-auto">
-                                {selectedPaintings.length === 0 ? (
-                                    <p>No paintings found for the selected filters.</p>
-                                ) : (
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    {sortedPaintings.map(p => {
-                                        const paddedFilename = String(p.imageFileName).padStart(6, "0");
-                                        return (
-                                        <div key={p.paintingId} className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center">
-                                            <img
+                        <div className="overflow-y-auto">
+                            {Array.isArray(selectedPaintings) && selectedPaintings.length === 0 ? ( 
+                                <p>No paintings found for the selected filters.</p>
+                            ) : (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {Array.isArray(sortedPaintings) &&
+                                    sortedPaintings.map(p => {
+                                    const paddedFilename = String(p.imageFileName).padStart(6, "0");
+                                    return (
+                                        <div
+                                        key={p.paintingId}
+                                        className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center"
+                                        onClick={() => handlePaintingClick(p)}
+                                        >
+                                        <img
                                             className="w-full rounded-2xl border-2 border-gray-700 mb-2"
                                             src={`/paintings/square/${paddedFilename}.jpg`}
                                             alt={p.title}
-                                            />
-                                            <p><strong>Artist: </strong>{p.artists.firstName} {p.artists.lastName}</p>
-                                            <p><strong>Title: </strong>{p.title}</p>
-                                            <p><strong>Year: </strong>{p.yearOfWork}</p>
-                                            <p><strong>Gallery: </strong>{p.galleries.galleryName}</p>
-                                            <p><strong>Medium: </strong>{p.medium}</p>
-                                            <p><strong>Measurement: </strong>{p.width} x {p.height}</p>
+                                        />
+                                        <p><strong>Artist: </strong>{p.artists.firstName} {p.artists.lastName}</p>
+                                        <p><strong>Title: </strong>{p.title}</p>
+                                        <p><strong>Year: </strong>{p.yearOfWork}</p>
+                                        <p><strong>Gallery: </strong>{p.galleries.galleryName}</p>
+                                        <p><strong>Medium: </strong>{p.medium}</p>
+                                        <p><strong>Measurement: </strong>{p.width} x {p.height}</p>
                                         </div>
-                                        );
+                                    );
                                     })}
-                                    </div>
-                                )}
+                                </div>
+                            )}
                             </div>
+                                                        
                         </div>
                     </div>
                 </div>
             </main>
+            {/* <PaintingDetails isOpen={isModalOpen} onClose={closeModal} painting={selectedPainting} update={props.update} /> */}
+            {isModalOpen && paintingDetails && (<PaintingDetails painting={paintingDetails}  onClose={closeModal} />
+            )}
         </div>
     );
 };
