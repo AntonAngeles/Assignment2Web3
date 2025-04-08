@@ -1,3 +1,4 @@
+// This will display and allow a user to select the specified genre
 const GenreListItem = (props) => {
     const clickHandle = (e) => {
         props.display(props.id)

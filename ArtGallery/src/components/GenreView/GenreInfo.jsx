@@ -1,3 +1,4 @@
+// This is where information based on Genre will be displayed
 const GenreInfo = (props) => {
 
     const getLink = (link) => {

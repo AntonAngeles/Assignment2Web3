@@ -1,3 +1,4 @@
+// This is where the paintings of the specified genre will be displayed
 import { useEffect, useState } from 'react';
 import PaintingDetails from '../PaintingModal/PaintingDetails';
 

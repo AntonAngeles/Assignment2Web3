@@ -1,3 +1,4 @@
+// This is the Genre page that contains the necessary information needed to find paintings based on their selected genre
 import { useEffect, useState } from 'react';
 import Header from '../Header';
 import GenreListItem from './GenreListItem';
