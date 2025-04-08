@@ -14,7 +14,7 @@ const Painting = () => {
     const [filterType, setFilterType] = useState("");
     const [sortOption, setSortOption] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false); //added this
-    const [paintingDetails, setPaintingDetails] = useState([]); //added this
+    const [paintingDetails, setPaintingDetails] = useState(null); //added this
 
     useEffect(() => {
         const fetchData = async () => {
@@ -92,7 +92,7 @@ const Painting = () => {
         }
     });  
       
-      
+    // Sort paintings
     let sortedPaintings = [...selectedPaintings];
 
     if (sortOption === "title") {
@@ -109,6 +109,12 @@ const Painting = () => {
 
     // This is for the modal box that will open when you click on a painting
         const handlePaintingClick = (painting) => {
+            console.log("Painting clicked:", painting);
+            setPaintingDetails(painting);
+            setIsModalOpen(true);
+        };
+
+        const openModal = (painting) => {
             setPaintingDetails(painting);
             setIsModalOpen(true);
         };
@@ -117,6 +123,11 @@ const Painting = () => {
             setIsModalOpen(false);
             setPaintingDetails(null);
         };
+
+        const addToFavorites = () => {
+            update(painting.title);
+            alert(`${painting.title} added to favorites!`);
+        }
 
     return (
         <div>
@@ -127,7 +138,9 @@ const Painting = () => {
                         <div className="bg-blue-500 p-4 text-white rounded-lg md:col-span-1 flex flex-col">
                             <h2 className="text-lg font-bold">Select Painting</h2>
                             <hr className="m-2"></hr>
+
                             {/* Painting Title Filter*/}
+                            {/* This is where you are to filter what paintings you are looking for */}
                             <div className="pt-4 flex items-center space-x-4 p-7">
                                 <input
                                     type="radio"
@@ -345,6 +358,7 @@ const Painting = () => {
                         </div>
 
                         {/* Painting Details Section*/}
+                        {/* This will display the paintings once filtered */}
                         <div className="bg-blue-500 p-4 text-white rounded-lg md:col-span-2">
                             <h2 className="text-lg font-bold">Painting Details</h2>
                             <hr className="m-2"></hr>
@@ -375,7 +389,7 @@ const Painting = () => {
                                         <div
                                         key={p.paintingId}
                                         className="bg-blue-600 rounded-2xl p-1.5 text-center justify-items-center"
-                                        onClick={() => handlePaintingClick(p)}
+                                        onClick={() => openModal(p)}
                                         >
                                         <img
                                             className="w-full rounded-2xl border-2 border-gray-700 mb-2"
@@ -399,8 +413,7 @@ const Painting = () => {
                     </div>
                 </div>
             </main>
-            {/* <PaintingDetails isOpen={isModalOpen} onClose={closeModal} painting={selectedPainting} update={props.update} /> */}
-            {isModalOpen && paintingDetails && (<PaintingDetails painting={paintingDetails}  onClose={closeModal} />
+            {isModalOpen && paintingDetails && (<PaintingDetails painting={paintingDetails} isOpen={isModalOpen} onClose={closeModal} update={addToFavorites}/>
             )}
         </div>
     );
