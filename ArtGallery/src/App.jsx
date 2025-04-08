@@ -182,7 +182,9 @@ function App() {
             />
           }
         />
-        <Route path="/painting" element={<Painting />} />
+        <Route path="/painting" element={<Painting 
+          favPaint={paintingsAddToFavorites}
+        />} />
         <Route path="/paintingdetails" element={<PaintingDetails />} />
         <Route path="/favorites" element={
           <Favorites

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../Header";
 import PaintingDetails from "../PaintingModal/PaintingDetails";
 
-const Painting = () => {
+const Painting = (props) => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     const [selectedPaintings, setSelectedPaintings] = useState([]);
@@ -123,11 +123,6 @@ const Painting = () => {
             setIsModalOpen(false);
             setPaintingDetails(null);
         };
-
-        const addToFavorites = () => {
-            update(painting.title);
-            alert(`${painting.title} added to favorites!`);
-        }
 
     return (
         <div>
@@ -413,7 +408,7 @@ const Painting = () => {
                     </div>
                 </div>
             </main>
-            {isModalOpen && paintingDetails && (<PaintingDetails painting={paintingDetails} isOpen={isModalOpen} onClose={closeModal} update={addToFavorites}/>
+            {isModalOpen && paintingDetails && (<PaintingDetails painting={paintingDetails} isOpen={isModalOpen} onClose={closeModal} update={props.favPaint}/>
             )}
         </div>
     );
