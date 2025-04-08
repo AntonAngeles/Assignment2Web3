@@ -142,6 +142,14 @@ function App() {
     setFavPaintings(prevFavPaintings => [...prevFavPaintings, {title}])
   }
 
+  const updateFavorites = () => {
+    const handleUpdateFavorites = (updatedFavorites) => {
+      setFavoriteGalleries(updatedFavorites.galleries);
+      setFavoriteArtists(updatedFavorites.artists);
+      setFavoritePaintings(updatedFavorites.paintings);
+    };
+  }
+
   return (
     <main>
       <Routes>
@@ -191,6 +199,7 @@ function App() {
             artists={favArtists}
             galleries={favGalleries}
             paintings={favPaintings}
+            onUpdateFavorites={updateFavorites}
           />} />
       </Routes>
     </main>

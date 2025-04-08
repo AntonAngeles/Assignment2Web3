@@ -20,7 +20,7 @@ const Favorites = (props) => {
   const handleDeleteGallery = (id) => {
     const updatedGalleries = galleries.filter((g) => g.id !== id);
     setGalleries(updatedGalleries);
-    // You might want to update the parent component's state as well
+
     if (props.onUpdateFavorites) {
       props.onUpdateFavorites({ galleries: updatedGalleries, artists, paintings });
     }
@@ -30,7 +30,7 @@ const Favorites = (props) => {
   const handleDeleteArtist = (id) => {
     const updatedArtists = artists.filter((a) => a.id !== id);
     setArtists(updatedArtists);
-    // You might want to update the parent component's state as well
+
     if (props.onUpdateFavorites) {
       props.onUpdateFavorites({ galleries, artists: updatedArtists, paintings });
     }
@@ -40,7 +40,7 @@ const Favorites = (props) => {
   const handleDeletePainting = (id) => {
     const updatedPaintings = paintings.filter((p) => p.id !== id);
     setPaintings(updatedPaintings);
-    // You might want to update the parent component's state as well
+
     if (props.onUpdateFavorites) {
       props.onUpdateFavorites({ galleries, artists, paintings: updatedPaintings });
     }
