@@ -2,6 +2,24 @@
 ### Assignment #2: Node, SQL (via supabase), React, Tailwind
 
 ## Overview
+This assignment was created for a user to be able to search for a specific Artist, Gallery, and Pinting.
+
+The following pages include:
+Login: User logs into website
+Artist: A list of Artist the user can select to display information about the Artist and their works.
+Paintings: This allows the user to find a specific painting based on the filters they choose to apply. 
+            Filters include:
+                            - Title
+                            - Artist
+                            - Gallery
+                            - Year of Work
+Gallery: A list of Galleries around the world that the user can select to display information about the Gallery, their location, and the paintings they hold.
+Genre: A list of various genres that the user can select to display information about the specific genre and paintings that fall under that genre.
+Favorites: Each of the previous pages allow for the user to add to their favorites. This page allows them to see which artists, galleries, and paintings that they have added to their favorites.
+
+Additional information:
+  The User is able to click on a painting, which will open a pop-up Modal which displays additional information about the painting they clicked. Here they are also able to add that painting to their favorites.
+
 This is a React application using the API from Assignment 1
 
 ![NodeJS](https://badgen.net/static/NodeJS/22.11.0/green) ![Express](https://badgen.net/static/Express/4.21.2/blue) ![Supabase](https://badgen.net/static/Supabase/2.48.1/red) ![React](https://badgen.net/static/React/v19)
